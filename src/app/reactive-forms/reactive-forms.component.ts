@@ -12,5 +12,10 @@ export class ReactiveFormsComponent implements OnInit {
 
   public cadastroForm: FormGroup = this.formBuilder.group({
     firstName: [''],
+    lastName: [''],
   });
+
+  public submitForm() {
+    console.log(this.cadastroForm.value);
+  }
 }

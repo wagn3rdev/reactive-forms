@@ -1,1 +1,14 @@
-<p>reactive-forms works!</p>
+<form [formGroup]="cadastroForm" (ngSubmit)="submitForm()">
+  <label>First name </label>
+  <input type="text" formControlName="firstName" />
+  <br />
+  <label>Last name </label>
+  <input type="text" formControlName="lastName" />
+  <br />
+  <br />
+  <button>Enviar</button>
+  <br />
+  <br />
+  {{ cadastroForm.get("firstName")?.value }}
+  {{ cadastroForm.get("lastName")?.value }}
+</form>
