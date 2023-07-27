@@ -2,6 +2,7 @@
   <label>First name </label>
   <input type="text" formControlName="firstName" />
   <span
+    class="alert"
     *ngIf="
       cadastroForm.get('firstName')?.errors &&
       (cadastroForm.get('firstName')?.touched ||
@@ -13,15 +14,28 @@
   <br />
   <label>Last name </label>
   <input type="text" formControlName="lastName" />
+  <span
+    class="alert"
+    *ngIf="cadastroForm.get('lastName')?.errors && cadastroForm.get('lastName')"
+  >
+    Sobrenome deve ter no mínimo
+    {{ cadastroForm.get("lastName")?.errors?.['minlength']?.requiredLength }}
+    caracteres
+  </span>
+  <br />
+  <br />
+  <label>E-mail </label>
+  <input type="text" formControlName="email" />
   <br />
   <br />
   <button [disabled]="cadastroForm.invalid">Enviar</button>
   <br />
   <br />
   <!-- {{ cadastroForm.get("firstName")?.value }} -->
-  errors: {{ cadastroForm.get("firstName")?.errors | json }} touched:
-  {{ cadastroForm.get("firstName")?.touched | json }} dirty:
-  {{ cadastroForm.get("firstName")?.dirty | json }}
-
+  <!-- errors: {{ cadastroForm.get("firstName")?.errors | json }} touched: -->
+  <!-- {{ cadastroForm.get("firstName")?.touched | json }} dirty: -->
+  <!-- {{ cadastroForm.get("firstName")?.dirty | json }} -->
+  <!-- {{ cadastroForm.get("lastName")?.errors | json }} -->
   <!-- {{ cadastroForm.get("lastName")?.value }} -->
+  {{ cadastroForm.get("email")?.errors | json }}
 </form>
